@@ -141,21 +141,22 @@ int main() {
             averages[op][container] = sum / numRuns;
         }
     }
-  cout << left << setw(15) << "Operation" << setw(12) << "Vector" << setw(12)
-       << "List" << setw(12) << "Set" << endl;
+ cout << left << setw(15) << "Operation" << setw(12) << "Vector" << setw(12)
+         << "List" << setw(12) << "Set" << endl;
 
-  cout << left << setw(15) << "Read" << setw(12) << readData(vec) << setw(12)
-       << readData(lst) << setw(12) << readData(st) << endl;
+    cout << left << setw(15) << "Read" << setw(12) << averages[0][0] << setw(12)
+         << averages[0][1] << setw(12) << averages[0][2] << endl;
 
-  cout << left << setw(15) << "Sort" << setw(12) << sortData(vec) << setw(12)
-       << sortData(lst) << setw(12) << sortData(st) << endl;
+    cout << left << setw(15) << "Sort" << setw(12) << averages[1][0] << setw(12)
+         << averages[1][1] << setw(12) << averages[1][2] << endl;
 
-  cout << left << setw(15) << "Insert" << setw(12) << insertData(vec)
-       << setw(12) << insertData(lst) << setw(12) << insertData(st) << endl;
+    cout << left << setw(15) << "Insert" << setw(12) << averages[2][0] << setw(12)
+         << averages[2][1] << setw(12) << averages[2][2] << endl;
 
-  cout << left << setw(15) << "Delete" << setw(12) << deleteData(vec)
-       << setw(12) << deleteData(lst) << setw(12) << deleteData(st) << endl;
+    cout << left << setw(15) << "Delete" << setw(12) << averages[3][0] << setw(12)
+         << averages[3][1] << setw(12) << averages[3][2] << endl;
 
-  cout << "microseconds";
-  return 0;
+    cout << "microseconds" << endl;
+
+    return 0;
 }
