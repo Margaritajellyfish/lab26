@@ -6,11 +6,11 @@
         "${workspaceFolder}/**"
       ],
       "compilerPath": "/usr/bin/clang",
-      "cStandard": "${default}",
-      "cppStandard": "${default}",
+      "cStandard": "c11",
+      "cppStandard": "c++11", // Specify C++11 standard here
       "intelliSenseMode": "macos-clang-arm64",
       "compilerArgs": [
-        ""
+        "-std=c++11" // Additional flag to ensure C++11 standard
       ]
     }
   ],
