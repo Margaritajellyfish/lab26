@@ -25,7 +25,7 @@ long readData(name &container) {
   auto end = high_resolution_clock::now();
   fin.close();
 
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 template <>
@@ -34,12 +34,12 @@ long readData(set<string> &container) {
   string line;
   auto start = high_resolution_clock::now();
   while (getline(fin, line)) {
-    container.insert(line); // For set
+    container.insert(line); 
   }
   auto end = high_resolution_clock::now();
   fin.close();
 
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 template <typename name>
@@ -49,7 +49,7 @@ long deleteData(name &container) {
   advance(it, container.size() / 2);
   container.erase(it);
   auto end = high_resolution_clock::now();
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 template <>
@@ -57,9 +57,9 @@ long deleteData(set<string> &container) {
   auto start = high_resolution_clock::now();
   auto it = container.begin();
   advance(it, container.size() / 2);
-  container.erase(it); // Erasing an element in the middle
+  container.erase(it); 
   auto end = high_resolution_clock::now();
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 template <typename name>
@@ -69,7 +69,7 @@ long insertData(name &container) {
   advance(it, container.size() / 2);
   container.insert(it, "TESTCODE");
   auto end = high_resolution_clock::now();
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 template <>
@@ -77,25 +77,25 @@ long insertData(set<string> &container) {
   auto start = high_resolution_clock::now();
   container.insert("TESTCODE"); // Direct insertion into the set
   auto end = high_resolution_clock::now();
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 long sortData(vector<string> &vec) {
   auto start = high_resolution_clock::now();
   sort(vec.begin(), vec.end());
   auto end = high_resolution_clock::now();
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 long sortData(list<string> &lst) {
   auto start = high_resolution_clock::now();
   lst.sort();
   auto end = high_resolution_clock::now();
-  return duration_cast<milliseconds>(end - start).count();
+  return duration_cast<microseconds>(end - start).count();
 }
 
 long sortData(set<string> &st) {
-  return -1; // Sorting not applicable for set
+  return -1; 
 }
 
 int main() {
