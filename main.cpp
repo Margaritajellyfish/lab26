@@ -99,10 +99,48 @@ long sortData(set<string> &st) {
 }
 
 int main() {
+  const int numRuns = 15;
+  const int numOperations = 4;
+  long results[numRuns][numOperations][3] = {0};
+  long averages[numOperations][3] = {0};
+
   vector<string> vec;
-  list<string> lst;
+  list<string> lst;    
   set<string> st;
-  
+
+  for (int run = 0; run < numRuns; ++run) {
+    
+
+        results[run][0][0] = readData(vec);
+        results[run][0][1] = readData(lst);
+        results[run][0][2] = readData(st);
+
+
+        results[run][1][0] = sortData(vec);
+        results[run][1][1] = sortData(lst);
+        results[run][1][2] = sortData(st);
+
+
+        results[run][2][0] = insertData(vec);
+        results[run][2][1] = insertData(lst);
+        results[run][2][2] = insertData(st);
+
+
+        results[run][3][0] = deleteData(vec);
+        results[run][3][1] = deleteData(lst);
+        results[run][3][2] = deleteData(st);
+    }
+
+
+    for (int op = 0; op < numOperations; ++op) {
+        for (int container = 0; container < 3; ++container) {
+            long sum = 0;
+            for (int run = 0; run < numRuns; ++run) {
+                sum += results[run][op][container];
+            }
+            averages[op][container] = sum / numRuns;
+        }
+    }
   cout << left << setw(15) << "Operation" << setw(12) << "Vector" << setw(12)
        << "List" << setw(12) << "Set" << endl;
 
